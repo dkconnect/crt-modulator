@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRT Modulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-4xl w-full text-center">
+        <h1 class="text-3xl font-bold mb-4 text-purple-400">CRT Modulator</h1>
+        <p class="text-gray-400 mb-6">Upload an image to apply a retro CRT effect and customize the output.</p>
+
+        <div class="flex flex-col items-center space-y-6">
+            <input type="file" id="file-input" accept="image/*" class="w-full">
+            
+            <canvas id="crt-canvas" class="w-full h-auto max-w-full rounded-lg"></canvas>
+
+            <div id="controls" class="w-full space-y-4">
+                <div class="flex items-center justify-between">
+                    <label for="scanline-slider" class="text-gray-300 w-1/4 text-left">Scanlines:</label>
+                    <input type="range" id="scanline-slider" class="slider w-3/4" min="0" max="100" value="50">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label for="dotsize-slider" class="text-gray-300 w-1/4 text-left">Dot Size:</label>
+                    <input type="range" id="dotsize-slider" class="slider w-3/4" min="1" max="10" value="2">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label for="bleed-slider" class="text-gray-300 w-1/4 text-left">Color Bleed:</label>
+                    <input type="range" id="bleed-slider" class="slider w-3/4" min="0" max="100" value="25">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label for="rgbshift-slider" class="text-gray-300 w-1/4 text-left">RGB Shift:</label>
+                    <input type="range" id="rgbshift-slider" class="slider w-3/4" min="0" max="20" value="5">
+                </div>
+            </div>
+
+            <button id="download-btn" class="hidden px-6 py-3 font-semibold text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-lg shadow-md hover:from-green-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition duration-300 ease-in-out">
+                Download Image
+            </button>
+        </div>
+
+        <p id="status" class="mt-4 text-gray-500 text-sm">Please upload an image to begin.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
